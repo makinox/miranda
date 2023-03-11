@@ -1,18 +1,24 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import cn from 'classnames';
+import type { AppProps } from 'next/app';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+import { Raleway, Martel_Sans } from '@next/font/google';
+
+import '../styles/globals.css';
+
+const firaCode = Raleway({
+  weight: '400',
+});
+
+const dmSans = Martel_Sans({
+  weight: '400',
+});
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <>
-      <Head>
-        <title>Welcome to main-page!</title>
-      </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
-    </>
+    <main className={cn(firaCode.className, dmSans.className)}>
+      <Component {...pageProps} />
+    </main>
   );
-}
+};
 
-export default CustomApp;
+export default MyApp;

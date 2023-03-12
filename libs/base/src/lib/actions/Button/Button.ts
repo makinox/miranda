@@ -9,7 +9,7 @@ export const ButtonBase = {
 
 export const Button = {
   elevated: {
-    container: cn('bg-neutral-50 shadow rounded-sm'),
+    container: cn('bg-red-600 shadow rounded-sm'),
     icon: cn(''),
     text: cn('py-3 px-6'),
   },

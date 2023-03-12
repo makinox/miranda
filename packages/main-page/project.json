@@ -8,6 +8,7 @@
       "executor": "@nrwl/next:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
+      "dependsOn": ["sync-styles"],
       "options": {
         "root": "packages/main-page",
         "outputPath": "dist/packages/main-page",
@@ -36,6 +37,13 @@
           "buildTarget": "main-page:build:production",
           "dev": false
         }
+      }
+    },
+    "sync-styles": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx run base:share"],
+        "parallel": false
       }
     },
     "export": {

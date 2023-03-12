@@ -4,14 +4,34 @@
   "sourceRoot": "libs/base/src",
   "projectType": "library",
   "targets": {
+    "watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tailwindcss -i ./libs/base/src/styles/input.css -o ./packages/main-page/styles/output.css -c ./libs/base/tailwind.config.js --watch"
+      }
+    },
+    "share": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tailwindcss -i ./libs/base/src/styles/input.css -o ./packages/main-page/styles/output.css -c ./libs/base/tailwind.config.js --minify"
+      }
+    },
+    "compile": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tailwindcss -i ./libs/base/src/styles/input.css -o ./libs/base/src/styles/output.css -c ./libs/base/tailwind.config.js --minify"
+      }
+    },
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
+      "dependsOn": ["compile"],
+
       "options": {
         "outputPath": "dist/libs/base",
         "main": "libs/base/src/index.ts",
         "tsConfig": "libs/base/tsconfig.lib.json",
-        "assets": ["libs/base/*.md"]
+        "assets": ["libs/base/*.md", "libs/base/src/styles/output.css"]
       }
     },
     "publish": {

@@ -1,9 +1,10 @@
-import cn from 'classnames';
 import type { AppProps } from 'next/app';
+import cn from 'classnames';
 
 import { Raleway, Martel_Sans } from '@next/font/google';
 
 import '../styles/globals.css';
+import '../styles/output.css';
 
 const firaCode = Raleway({
   weight: '400',

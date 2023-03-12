@@ -1,3 +1,6 @@
+import { Button } from '@miranda/base';
+import cn from 'classnames';
+
 const Index = () => {
   return (
     <section className="container mx-auto">
@@ -7,7 +10,9 @@ const Index = () => {
           Miranda is a design system for development projects, our objective is
           to share components in most libraries, frameworks and languages
         </p>
-        <button>Get started</button>
+        <button className={cn(Button.elevated.container)}>
+          <span className={cn(Button.elevated.text)}>Get started</span>
+        </button>
       </div>
       <div>
         <div>
